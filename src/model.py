@@ -28,7 +28,7 @@ class SegModel(pl.LightningModule, ABC):
         self,
         num_classes: int,
         lr: float = 1.0e-3,
-        loss_fn: Loss = MultiLoss({nn.CrossEntropyLoss(): 1.0, dice_score: 0.1}),
+        loss_fn: Loss = MultiLoss({nn.CrossEntropyLoss(): 0.5, dice_score: 0.1}),
     ):
         super().__init__()
         self.learning_rate = lr
