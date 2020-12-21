@@ -32,6 +32,9 @@ def experiment(
     use_amp: bool = typer.Option(False, "--use-amp"),
     seed: Optional[int] = typer.Option(47, "--seed"),
     download: bool = typer.Option(False, "--download", "-dl"),
+    team: Optional[List[str]] = typer.Option(None, "--team"),
+    test_team: Optional[List[str]] = typer.Option(None, "--test-team"),
+    crop: Optional[str] = typer.Option(None, "--crop"),
 ) -> None:
     """Main script."""
     # Create a submdir within the output dir named with a timestamp
@@ -52,8 +55,9 @@ def experiment(
         val_pcnt=val_pcnt,
         num_workers=num_workers,
         download=download,
-        teams=["Roseau"],
-        crop="Haricot",
+        teams=team,
+        test_teams=test_team,
+        crop=crop,
     )
 
     # ------------------------
